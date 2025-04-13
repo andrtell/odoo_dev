@@ -1,0 +1,7 @@
+services:
+  odoo_host:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .devcontainer/bin:/root/bin

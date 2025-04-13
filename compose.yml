@@ -1,0 +1,24 @@
+name: project
+services:
+  db_host:
+    image: docker.io/postgres:15
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+  odoo_host:
+    image: docker.io/odoo:18    
+    depends_on:
+      - db_host
+    volumes:
+      - .:/project
+      - ./odoo.conf:/etc/odoo/odoo.conf
+      - odoo_volume:/var/lib/odoo
+    ports:
+      - "8069:8069"
+
+volumes:
+  db_volume:
+  odoo_volume:

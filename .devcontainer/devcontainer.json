@@ -1,0 +1,27 @@
+// https://aka.ms/devcontainer.json
+{
+	"name": "Dev Container",
+	"dockerComposeFile": [
+		"../compose.yml",
+		"compose.yml"
+	],
+	"service": "odoo_host",
+	"remoteUser": "root",
+	"workspaceFolder": "/project",
+	"forwardPorts": [
+		8069
+	],
+	"shutdownAction": "stopCompose",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			},
+			"extensions": [
+				"DotJoshJohnson.xml",
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+			]
+		}
+	}
+}
